@@ -65,8 +65,6 @@ class FaceModel:
 
     def detect_faces(self, img):
         ret = self.detector.detect_face(img)
-        if ret is None:
-            return None
         return ret
 
     def align_face(self, img, bbox, points):
