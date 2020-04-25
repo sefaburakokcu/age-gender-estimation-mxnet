@@ -324,7 +324,7 @@ class MtcnnDetector(object):
         height, width, _ = img.shape
         if det_type==0:
             MIN_DET_SIZE = 12
-
+          
             if img is None:
                 return None
 
@@ -366,7 +366,7 @@ class MtcnnDetector(object):
             
             # remove the Nones 
             total_boxes = [ i for i in total_boxes if i is not None]
-
+            
             if len(total_boxes) == 0:
                 return None
             
@@ -416,7 +416,7 @@ class MtcnnDetector(object):
         # filter the total_boxes with threshold
         passed = np.where(output[1][:, 1] > self.threshold[1])
         total_boxes = total_boxes[passed]
-
+        
         if total_boxes.size == 0:
             return None
 
@@ -450,7 +450,7 @@ class MtcnnDetector(object):
         # filter the total_boxes with threshold
         passed = np.where(output[2][:, 1] > self.threshold[2])
         total_boxes = total_boxes[passed]
-
+      
         if total_boxes.size == 0:
             return None
 
