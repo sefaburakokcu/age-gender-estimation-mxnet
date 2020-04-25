@@ -3,7 +3,9 @@
 API for age/gender estimation
 """
 
-
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src', 'api'))
 import face_model
 import numpy as np
 
@@ -12,8 +14,8 @@ from flask import Flask, request
 
 
 
-age_model_str =  '../../models/ssr-net/age_model/model,0'
-gender_model_str = '../../models/ssr-net/gender_model/model,0'
+age_model_str =  './models/ssr-net/age_model/model,0'
+gender_model_str = './models/ssr-net/gender_model/model,0'
 
 model = face_model.FaceModel(age_model_str, gender_model_str)
 
