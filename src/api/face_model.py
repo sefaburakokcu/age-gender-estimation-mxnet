@@ -55,7 +55,7 @@ class FaceModel:
         self.det_minsize = 50
         self.det_threshold = [0.6,0.7,0.8]
     
-        mtcnn_path = '../../models/mtcnn'
+        mtcnn_path = './models/mtcnn'
         if self.det==0:
           detector = MtcnnDetector(model_folder=mtcnn_path, ctx=ctx, num_worker=1, accurate_landmark = True, threshold=self.det_threshold)
         else:
