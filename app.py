@@ -10,7 +10,7 @@ import face_model
 import numpy as np
 
 from PIL import Image
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 
 
@@ -25,8 +25,8 @@ app.config['SECRET_KEY'] = b'_5#y2L"F4Q8zfrtU5L\n\xec]/'
 
 @app.route('/')
 def home():
-  return 'Hello, This is an Age-Gender Estimation API built by Sefa Burak OKCU.'
-
+#  return 'Hello, This is an Age-Gender Estimation API built by Sefa Burak OKCU.'
+    return render_template('index.html')
 
 @app.route('/estimate', methods=['POST'])
 def estimate():
