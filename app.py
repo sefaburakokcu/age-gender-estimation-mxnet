@@ -5,7 +5,6 @@ API for age/gender estimation
 
 import os
 import sys
-
 import cv2
 import numpy as np
 import streamlit as st 
