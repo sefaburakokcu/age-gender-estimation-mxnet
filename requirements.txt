@@ -1,8 +1,7 @@
 pip
 setuptools
-gunicorn
 opencv-python-headless
-Flask==1.1.2
+streamlit
 jsonpickle==1.4.1
 mxnet==1.6.0
 numpy==1.18.2
