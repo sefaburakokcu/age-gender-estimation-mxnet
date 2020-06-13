@@ -54,8 +54,9 @@ class FaceModel:
          
         self.det_minsize = 50
         self.det_threshold = [0.6,0.7,0.8]
-    
-        mtcnn_path = './models/mtcnn'
+        
+        os.chdir(os.path.dirname(os.path.abspath(__file__)))
+        mtcnn_path = '../../models/mtcnn'
         if self.det==0:
           detector = MtcnnDetector(model_folder=mtcnn_path, ctx=ctx, num_worker=1, accurate_landmark = True, threshold=self.det_threshold)
         else:
@@ -92,25 +93,3 @@ class FaceModel:
         output = self.gender_model.get_outputs()[0].asnumpy()
         return output
     
-    
-if __name__ == '__main__':
-    age_model_str =  '../../models/ssr-net/age_model/model,0'
-    gender_model_str = '../../models/ssr-net/gender_model/model,0'
-
-    model = FaceModel(age_model_str, gender_model_str)
-    
-    image = cv2.imread('../../data/faces.png')
-    
-    ret = model.detect_faces(image)
-    if ret is not None:
-        bboxes, points = ret
-        for i,(bbox,landmarks) in enumerate(zip(bboxes, points)):
-            aligned = model.align_face(image, bbox, landmarks)
-            db = model.preprocess_input(aligned)
-            age = model.predict_age(db)[0][0]
-            gender_prob = model.predict_gender(db)[0][0]
-            if gender_prob>0.5:
-                gender = 'Male'
-            else: 
-                gender = 'Female'
-            print('Face: %d, Age: %f, Gender: %s' %(i,age,gender))
