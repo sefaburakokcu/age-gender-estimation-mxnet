@@ -7,6 +7,7 @@ import os
 import sys
 import cv2
 import numpy as np
+import mxnet as mx
 import streamlit as st 
 from PIL import Image
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src', 'api'))
@@ -15,8 +16,9 @@ import face_model
 
 age_model_str =  './models/ssr-net/age_model/model,0'
 gender_model_str = './models/ssr-net/gender_model/model,0'
+detection_model_path =  './models/mtcnn/'
 
-model = face_model.FaceModel(age_model_str, gender_model_str)
+model = face_model.FaceModel(age_model_str, gender_model_str, detection_model_path)
 
     
 def convert_to_np(image):
@@ -73,7 +75,8 @@ def draw_predictions(image, predictions):
         return image
     else:
         return image
-    
+
+
 def main():
     st.title("Age-Gender Estimation Demo")
 

@@ -14,14 +14,14 @@ import face_model
 
 age_model_str =  '../models/ssr-net/age_model/model,0'
 gender_model_str = '../models/ssr-net/gender_model/model,0'
+detection_model_path =  '../models/mtcnn/'
 
-model = face_model.FaceModel(age_model_str, gender_model_str)
+model = face_model.FaceModel(age_model_str, gender_model_str, detection_model_path )
     
 
 def draw_predictions(image, predictions):
     if len(predictions)>0:
         for bbox, age, gender in predictions:
-            print(bbox[-1])
             if bbox[-1] > 0.9: # score threshold
                 pt1 = (int(bbox[0]),int(bbox[1]))
                 pt2 = (int(bbox[2]),int(bbox[3]))
@@ -60,7 +60,7 @@ def predict(image):
             
     
 def main():
-    image = cv2.imread('../../data/faces.png')
+    image = cv2.imread('../data/faces.png')
     predictions = predict(image)
     
     image = draw_predictions(image, predictions)
