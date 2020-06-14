@@ -33,11 +33,12 @@ def load_model(model_str, image_size, layer, ctx=mx.cpu()):
 
   
 class FaceModel:
-    def __init__(self, age_model_str, gender_model_str, image_size=(64,64), det=0):
+    def __init__(self, age_model_str, gender_model_str, detection_model_path, image_size=(64,64), det=0):
         self.age_model_str = age_model_str 
         self.gender_model_str = gender_model_str
         self.image_size = image_size
         self.det = det
+        self.mtcnn_path = detection_model_path
         
         if mx.context.num_gpus()>0:
           ctx = mx.gpu(0)
@@ -55,12 +56,10 @@ class FaceModel:
         self.det_minsize = 50
         self.det_threshold = [0.6,0.7,0.8]
         
-        os.chdir(os.path.dirname(os.path.abspath(__file__)))
-        mtcnn_path = '../../models/mtcnn'
         if self.det==0:
-          detector = MtcnnDetector(model_folder=mtcnn_path, ctx=ctx, num_worker=1, accurate_landmark = True, threshold=self.det_threshold)
+          detector = MtcnnDetector(model_folder=self.mtcnn_path, ctx=ctx, num_worker=1, accurate_landmark = True, threshold=self.det_threshold)
         else:
-          detector = MtcnnDetector(model_folder=mtcnn_path, ctx=ctx, num_worker=1, accurate_landmark = True, threshold=[0.0,0.0,0.2])
+          detector = MtcnnDetector(model_folder=self.mtcnn_path, ctx=ctx, num_worker=1, accurate_landmark = True, threshold=[0.0,0.0,0.2])
         self.detector = detector
 
 
