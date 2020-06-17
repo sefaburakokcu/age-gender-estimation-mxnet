@@ -3,7 +3,7 @@
 This repository is created for age-gender estimation demo using SSR-Net in MXNet.
 Training code can be found [here](https://github.com/wayen820/gender_age_estimation_mxnet).
 
-[Demo website](https://age-gender-estimation-api.herokuapp.com/)
+[Demo website](https://age-gender-prediction.herokuapp.com/)
 
 ![Image of output image](https://github.com/sefaburakokcu/age-gender-estimation-mxnet/blob/master/data/output_image.jpg)
 
