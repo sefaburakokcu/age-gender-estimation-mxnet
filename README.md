@@ -8,7 +8,8 @@ Training code can be found [here](https://github.com/wayen820/gender_age_estimat
 
 ## Acknowledgment
 
-https://github.com/wayen820/gender_age_estimation_mxnet
+* https://github.com/wayen820/gender_age_estimation_mxnet
+* https://www.ijcai.org/Proceedings/2018/0150.pdf
 
 
 
