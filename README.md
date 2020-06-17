@@ -15,19 +15,19 @@ git clone https://github.com/sefaburakokcu/age-gender-estimation-mxnet.git
 
 * Then, install prerequisites.
 
-- pip
-- setuptools
-- opencv-python-headless
-- jsonpickle==1.4.1
-- mxnet==1.6.0
-- numpy==1.18.2
-- scikit-image==0.16.2
-- scipy==1.4.1
-- pillow==7.0.0 
+  - pip
+  - setuptools
+  - opencv-python-headless
+  - jsonpickle==1.4.1
+  - mxnet==1.6.0
+  - numpy==1.18.2
+  - scikit-image==0.16.2
+  - scipy==1.4.1
+  - pillow==7.0.0 
 
 ## Usage
 
-Under __src__ folder:
+Under *src* folder, run *test.py*.
 
 ```bash
 python3 test.py
