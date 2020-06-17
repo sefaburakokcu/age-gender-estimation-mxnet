@@ -67,6 +67,7 @@ def main():
     cv2.imwrite("output_image.jpg", image)
     cv2.imshow("Output Image", image)   
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
     
 
 if __name__ == '__main__':
